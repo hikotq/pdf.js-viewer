@@ -13382,3 +13382,8 @@ exports.PDFPrintService = PDFPrintService;
 /***/ })
 /******/ ]);
 //# sourceMappingURL=viewer.js.map
+//
+function loadBase64(base64) {
+  let pdfData = atob(base64);
+  pdfjsLib.getDocument({data: pdfData}).promise.then(pdfDocument => { PDFViewerApplication.load(pdfDocument) })
+}
